@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+{% load i18n static admin_style_tags %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom_admin.css' %}">
+{% endblock %}
+
+{% block branding %}
+<div id="header-logo">
+    <a href="/">
+        <img src="{% static 'images/logo.png' %}" alt="MyCompany" style="height:40px;">
+    </a>
+</div>
+<h1 id="site-name">MyCompany Admin</h1>
+{% endblock %}
+
+{% block userlinks %}
+    <ul class="user-links">
+        <li><a href="/">🏠 Home</a></li>
+        {% if user.has_usable_password %}
+        <li><a href="{% url 'admin:password_change' %}">🔑 {% trans 'Change password' %}</a></li>
+        {% endif %}
+        <li><a href="{% url 'admin:logout' %}">🚪 {% trans 'Log out' %}</a></li>
+    </ul>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

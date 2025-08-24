@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="home py-8">
+    <div class="text text-2xl font-bold mb-6">
+        Your Assigned Works
+    </div>
+    <div class="max-w-3xl mx-auto">
+        <div class="p-6 bg-white rounded-2xl shadow-lg dark:bg-gray-800 dark:border dark:border-gray-700">
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                    Works
+                </h3>
+            </div>
+
+            {% if works %}
+            <table class="min-w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+                        <th class="px-6 py-3">Task</th>
+                        <th class="px-6 py-3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for info in works %}
+                    <tr class="bg-white dark:bg-gray-800 border-b hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                        <td class="px-6 py-4">
+                            <p class="text-sm text-gray-900 dark:text-white">
+                                Assigned to: <b>{{ info.taskerId }}</b>
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                                Assign Date: {{ info.assignDate }}
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                                Due Date: {{ info.dueDate }}
+                            </p>
+                            <a href="{% url 'workdetails' wid=info.id %}" 
+                               class="text-indigo-600 hover:underline font-medium">
+                               View Details
+                            </a>
+                        </td>
+                        <td class="px-6 py-4 flex space-x-3">
+                            <a href="{% url 'updatework' wid=info.id %}" 
+                               class="px-3 py-1 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700">
+                               Edit
+                            </a>
+                            <a href="{% url 'deletework' wid=info.id %}" 
+                               class="px-3 py-1 bg-red-600 text-white text-sm rounded-md hover:bg-red-700">
+                               Delete
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="text-center py-6 text-gray-500 dark:text-gray-400">
+                No works assigned yet.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
