@@ -1,65 +1,95 @@
-# Employee Management System - Django(Python)
+Employee Management System 🏢
 
-Employee Management System built in a Python Framework Django and PostgreSQL as Database. This webapp include the functionality like...
+A full-stack Employee Management System built with Django (Python) and PostgreSQL.
+This web application helps organizations manage employees, track work assignments, attendance, and internal communication efficiently.
 
-1. Login / Registration (Admin, Employee)
-2. Add / Manage Employee (Admin)
-3. Publish / Manage Notice (Admin)
-4. Add / Manage Attendance (Admin)
-5. Assign / Manage Work (Employee)
-6. Send Request (Employee)
-7. View Request, Notice, Works etc...
+🚀 Features
 
-## How to Use this Project?
-***
-- Install Python to your System.
-- Run Following command to your terminal.
-    ```python
-    pip install django
-    ```
-- Install Pipenv for Virtual Environment, run the command...
-    ```python
-    pip install pipenv
-    ```
-- Clone the repository to your local system.
-- Enter in Virtual Environment by running following command in Current Working Directory.
-    ```python
-    pipenv shell
-    ```
-- Setup PostgreSQL Database and update database name and password in settings.py file in employeemanagement.
-- Make the Migrations, run the command
-    ```python
-    python manage.py makemigrations
-    ```
-- Migrate the App, run the command
-    ```python
-    python manage.py migrate
-    ```
-- Finally Run the App, run the command.
-    ```python
-    python manage.py runserver
-    ```
-- Hola, It's running !!
+Authentication & Authorization
 
-## Screenshots
+Secure login/registration for Admin and Employees.
 
-Login
-![Login](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Login.png "Login")
+Admin Functionality
 
-Dashboard
-![Dashboard](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Dashboard.png?raw=true "Dashboard")
+Add, update, and remove employees.
 
-Assign Work
-![Assign Work](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Assign%20Work.png?raw=true "Assign Work")
+Publish and manage notices.
 
-Notice
-![Notice](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Notice.png?raw=true "Notice")
+Track and manage attendance.
 
-Admin (Manage Employee)
-![Admin (Manage Employee)](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Admin%20Employee.png?raw=true "Admin (Manage Employee)")
+Assign tasks and monitor progress.
 
-### Check out more Screenshots in Screenshot Folder...
+Employee Functionality
 
->If you found this useful, make sure to give it a star 🌟
+View assigned tasks and notices.
 
-## Thank You!!
+Update work status.
+
+Submit requests to admin.
+
+🛠️ Tech Stack
+
+Backend: Django (Python)
+
+Frontend: HTML, CSS, Tailwind (with Django templates)
+
+Database: PostgreSQL
+
+Other Tools: Pipenv (Virtual Environment), Git/GitHub
+
+⚡ Getting Started
+Prerequisites
+
+Python (>= 3.9 recommended)
+
+PostgreSQL
+
+Pipenv (for virtual environment)
+
+Setup Instructions
+
+Clone the repository:
+
+git clone https://github.com/<your-username>/EmployeeManagementSys.git
+cd EmployeeManagementSys
+
+
+Create & activate virtual environment:
+
+pip install pipenv
+pipenv shell
+
+
+Install dependencies:
+
+pip install django psycopg2
+
+
+Configure your database in settings.py:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+
+Run migrations:
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+Start the development server:
+
+python manage.py runserver
+
+
+Open in browser:
+
+http://127.0.0.1:8000/
